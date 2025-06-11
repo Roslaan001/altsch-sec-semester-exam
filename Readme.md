@@ -110,10 +110,9 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 > The script was written to reduce the work of running the commands manually and one by one after creating the instance, the script xcan either be used as user data or run after creating the instance, in my case here, i am passing it as user data.
 
-
-
+---
 
 
 ### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
 
-__no-ip.com__ is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. So I got the subdomain, input my EC2 IP address and wait a bit for no-ip to match my fixed subdomain name to the EC2 IP address
+__no-ip.com__ [Link Text](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. So I got the subdomain, input my EC2 IP address and wait a bit for no-ip to match my fixed subdomain name to the EC2 IP address
