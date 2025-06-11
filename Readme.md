@@ -68,7 +68,7 @@ I created four files
 
 
 - Key Pair (login)
-    - I created a new key pair with the name (altschool)
+    - I created a new key pair with the name (altschool) which will be use to ssh into my ec2 instance later on
         - __Key pair name__: altschool.pem
 
 - Network Settings
@@ -76,10 +76,11 @@ I created four files
     - __Subnet__: Default Subnet in any availability zone
     - __Auto-assign public IP__: Enable
     - Firewall (security groups)
-        - I allow http which is on port 80 from any ip address on the internet
-        - I allow https which is on port 443 from any ip address on the internet
-        - I also allow ssh traffic from only my PC address for security wiseness
-        -
+        - I created a new security then;
+            - I allow http which is on port 80 from any ip address on the internet
+            - I allow https which is on port 443 from any ip address on the internet
+            - I also allow ssh traffic from only my PC address for security wiseness
+            -
 
 - Under the advanced details section, there is a section called User Data, (picture shown below), it a field where you can upload your scripts to run at boot time (during the creation of the instance), and that is where I added my automated-deployment.sh file where it does the following steps by steps in the background as it is creating the instance:
 
@@ -103,6 +104,7 @@ npm install
 # Install Certbot for SSL           
 apt install certbot python3-certbot-nginx -y
 ```
+So basically, what this script will do is update the ec2, download nginx, clone my code from github, move it to the nginx default html path, download and install nodejs, and installing certbot which will be used for SSL certificate
 
 After this, I clicked on launch instance to create my EC2 instance and it was created successfully
 
@@ -114,3 +116,4 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 ### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
 
+__no-ip.com__ is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. So I got the subdomain, input my EC2 IP address and wait a bit for no-ip to match my fixed subdomain name to the EC2 IP address

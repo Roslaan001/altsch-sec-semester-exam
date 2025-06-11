@@ -9,7 +9,7 @@ apt install nginx -y
 # Clone the repository from github
 git clone https://github.com/Roslaan001/altsch-sec-semester-exam
 # Move the cloned repository to the nginx web server default webpage directory
-mv altsch-sec-semester-exam/* /var/www/html
+sudo mv altsch-sec-semester-exam/* /var/www/html
 # Remove the empty cloned repository directory 
 rm -rf altsch-sec-semester-exam
 # Install Node.js and npm
