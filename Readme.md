@@ -104,7 +104,13 @@ npm install
 apt install certbot python3-certbot-nginx -y
 ```
 
+After this, I clicked on launch instance to create my EC2 instance and it was created successfully
+
 > The script was written to reduce the work of running the commands manually and one by one after creating the instance, the script xcan either be used as user data or run after creating the instance, in my case here, i am passing it as user data.
 
 
+
+
+
 ### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
+
