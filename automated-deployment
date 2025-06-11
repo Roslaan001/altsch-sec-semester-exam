@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This script automates the deployment of a web application, configuration of https with a custom subdomain from no-ip.com using EC2 on AWS
+
+# Update and install necessary packages
+apt update && upgrade -y
+# Install Nginx
+apt install nginx -y
+# Clone the repository from github
+git clone https://github.com/Roslaan001/altsch-sec-semester-exam
+# Move the cloned repository to the nginx web server default webpage directory
+mv altsch-sec-semester-exam/* /var/www/html
+# Remove the empty cloned repository directory 
+rm -rf altsch-sec-semester-exam
+# Install Node.js and npm
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
+apt install nodejs -y
+# Install npm packages
+npm install
+# Change the permission of the app.js file and make it executable
+chmod +x app.js
+# Start the Node.js application in the background and redirecting the output to a log file
+nohup node app.js > /var/log/app.log 2>&1 &
+# Install Certbot for SSL           
+apt install certbot python3-certbot-nginx -y
+
+
+
