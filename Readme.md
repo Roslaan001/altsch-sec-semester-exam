@@ -14,7 +14,7 @@
 
 ## PROJECT OVERVIEW
 
-### The exam entails creating, deploying and configuring HTTPS for a dynamic web application as stated below
+## The exam entails creating, deploying and configuring HTTPS for a dynamic web application as stated below
 
 - Provisioning a server (Done with AWS Elastic Compute Cloud(EC2))
 - Web Server Setup (Done with Nginx (A lightweight Webserver))
@@ -31,7 +31,7 @@ The goal of this project is to provision/create a server, set up a web server, d
 
 Here is a step by step guide on how I completed the project.
 
-### Step 1: Creating my dynamic landing page
+## Step 1: Creating my dynamic landing page
 
  1. I created my landing page and tested it in my local environment before pushing to Github and making it production ready.
 
@@ -112,7 +112,7 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 ---
 
-### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
+## Step 3: Getting a subdomain from no-ip for configuration of HTTPS
 
 __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below 
 
