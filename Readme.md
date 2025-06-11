@@ -43,7 +43,9 @@ I created four files
 
 - __app.js__:A Node.js application that serves web content and acts as the backend server that Nginx (configured as a reverse-proxy) forwards requests to.
 
-- __automated-deployment.sh__ : A bash script code that automated the update and upgrade of the ec2 server, installation of nginx, cloning the code from GitHub, deploying and hosting of the web server and installation of certbot which is used for securing the web app with HTTPS.
+- __automated-deployment.sh__ : A bash script code that automated the update and upgrade of the ec2 server, installation of nginx, cloning the code from GitHub, deploying and hosting of the web server, installation of nodejs and npm and installation of  certbot which is used for securing the web app with HTTPS.
+
+> All of these files was pushed to github where the it will be cloned in the EC2 instance later on, the script was also pushed as reference but it will be used during the creation of the instance.
 
 ---
 
@@ -62,7 +64,7 @@ I created four files
     - __AMI__: Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
 
 - Instance Type
-    - __instance type__:t2.micro
+    - __instance type__ : t2.micro
 
 
 - Key Pair (login)
@@ -74,8 +76,35 @@ I created four files
     - __Subnet__: Default Subnet in any availability zone
     - __Auto-assign public IP__: Enable
     - Firewall (security groups)
-        - I configured both the http and https to save time
+        - I allow http which is on port 80 from any ip address on the internet
+        - I allow https which is on port 443 from any ip address on the internet
         - I also allow ssh traffic from only my PC address for security wiseness
         -
 
-- Under the advanced details section, there is a section called User Data, (picture shown below)
+- Under the advanced details section, there is a section called User Data, (picture shown below), it a field where you can upload your scripts to run at boot time (during the creation of the instance), and that is where I added my automated-deployment.sh file where it does the following steps by steps in the background as it is creating the instance:
+
+```bash
+# Update and install necessary packages in the server
+apt update && upgrade -y
+# Install Nginx (the webserver that will serve my webpage, and as the reverse proxy)
+apt install nginx -y
+# Clone my repository (index.html, style.css and app.js) from github
+git clone https://github.com/Roslaan001/altsch-sec-semester-exam
+# Move the cloned repository to the nginx web server default webpage directory
+mv altsch-sec-semester-exam/* /var/www/html
+# Remove the empty cloned repository directory since it is now empty
+rm -rf altsch-sec-semester-exam
+# Install Node.js and npm which is used for running nodejs
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
+# Install nodejs
+apt install nodejs -y
+# Install npm packages
+npm install
+# Install Certbot for SSL           
+apt install certbot python3-certbot-nginx -y
+```
+
+> The script was written to reduce the work of running the commands manually and one by one after creating the instance, the script xcan either be used as user data or run after creating the instance, in my case here, i am passing it as user data.
+
+
+### Step 3: Getting a subdomain from no-ip for configuration of HTTPS

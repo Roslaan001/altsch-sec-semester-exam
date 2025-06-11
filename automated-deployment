@@ -17,10 +17,6 @@ curl -sL https://deb.nodesource.com/setup_16.x | bash -
 apt install nodejs -y
 # Install npm packages
 npm install
-# Change the permission of the app.js file and make it executable
-chmod +x app.js
-# Start the Node.js application in the background and redirecting the output to a log file
-nohup node app.js > /var/log/app.log 2>&1 &
 # Install Certbot for SSL           
 apt install certbot python3-certbot-nginx -y
 
