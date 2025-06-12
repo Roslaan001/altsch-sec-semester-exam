@@ -108,7 +108,7 @@ So basically, what this script will do is update the ec2, download nginx, clone 
 
 After this, I clicked on launch instance to create my EC2 instance and it was created successfully
 
-> The script was written to reduce the work of running the commands manually and one by one after creating the instance, the script xcan either be used as user data or run after creating the instance, in my case here, i am passing it as user data.
+> The script was written to reduce the work of running the commands manually and one by one after creating the instance, the script xcan either be used as user data or run after creating the instance, in my case here, i am passing it as user data. As soon as the instance is created, check all what you install with the script
 
 ---
 
@@ -117,3 +117,47 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below 
 
 ![image description](images/no-ip%20image.png)
+
+
+## Step 4: Bonus Task (optional) Securing the webpage with HTTPS
+
+Configuring a website with HTTPS is very important because:
+- it secures your website from hacker,
+- it enhances security and data integrity,
+- it improves Search Engine Optimization (SEO)
+- it increases user trust and credibility
+- it is among the requirements for compliance and regulatory
+
+After the steps above, the next is sshing into my ec2 server, I did ssh using my wsl and the key pair I downloaded with the command
+
+``` bash
+ssh -i altschool.pem ubuntu@13.219.103.15
+```
+
+I checked whether the tool I will use configuring HTTPS which is certbot has been installed and I noticed it has, so I ran
+
+``` bash
+sudo certbot
+``` 
+
+
+
+## Step 5: Bonus Task (optional) Adding reverse proxy with nodejs as the backend app and nginx as the reverse proxy
+
+## Deliverables/Submissions
+
+**Domain name:** roslaan.ddns.net
+
+**Public IP Address:** 13.219.103.15
+
+**Public URL Address:** https://roslaan.ddns.net/
+
+**Screenshot:**
+
+## Contact
+
+If you have any questions or suggestions, feel free to open an issue or reach out to me directly via my email or LinkedIn. I'm looking forward to hearing from you!
+
+**Email:** abdulsomad005@gmail.com
+
+**LinkedIn:** [Abdulwahab Abdulsomad](www.linkedin.com/in/abdulsomad-olayiwola-abdulwahab)
