@@ -186,6 +186,10 @@ And it generated some prompts:
 
 **Screenshot:**
 
+Below are two images:
+    - The first one is the webpage with the ip address and not secured with https.
+    - The second one is the webpage with the custom domain and secured with https.
+
 ![image description](images/webpage-with-only-ip-address.png)
 ![image description](images/image-with-domain-name.png)
 
