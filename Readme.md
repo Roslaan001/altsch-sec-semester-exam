@@ -138,7 +138,7 @@ __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP 
 
 ---
 
-## Step 5: Bonus Task (optional) Securing the webpage with HTTPS
+## Step 5: Bonus Task (optional) Securing the webpage with HTTPS using SSL Certificate
 
 Configuring a website with HTTPS is very important because:
 
@@ -154,6 +154,9 @@ After the steps above, the next is sshing into my ec2 server, I did ssh using my
 ssh -i altschool.pem ubuntu@13.219.103.15
 ```
 
+> An SSL certificate is a digital certificate that authenticates a website's identity and encrypts communication between a browser and the server, ensuring a secure connection. This encrypted connection, often indicated by an "HTTPS" address and a padlock icon in the browser, protects sensitive information like usernames, passwords, and credit card details from being intercepted.
+
+
 I checked whether the SSL certificate tool (certbot) I will use configuring HTTPS which is certbot has been installed with scripts I used at the start of the instance with the command __certbot --version__ and I noticed it is installed, so I ran
 
 ``` bash
@@ -166,10 +169,32 @@ And it generated some prompts:
 - Asked whether I want to subscribe for newsletter which I input y for yes
 - Then prompt me to enter my domain name that I want to secure so I input __roslaan.ddns.net__ and after some seconds, I got a successful message that my certificate has been deployed successfully
 
+And that was how I secured my website with HTTPS
 
+---
 
 ## Step 6: Bonus Task (optional) Adding reverse proxy with nodejs as the backend app and nginx as the reverse proxy
 
+What is a reverse proxy?
+A reverse proxy is a type of proxy server that acts on behalf of backend servers, specifically web servers, to handle client requests. It intercepts client requests, processes them, and then forwards them to the appropriate server, which can be different than the original server. The reverse proxy then sends the server's response back to the client. 
+
+So in this case, I use nginx as the reverse proxy, the intermediary between the client(A user/browser) and the backend server (nodejs)
+
+I configured the nginx config file which is __/etc/nginx/sites-available/default__ and added the reverse proxy parameters which are:
+
+ ``` bash
+proxy_pass http://localhost:3000;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+
+```
+
+This ensures that my web app runs on localhost at port 3000. It means that when a user sends a request, Nginx forwards it to my EC2 instance as localhost, and responds to the user without exposing the backend server's IP address.
+
+So after this, I run __node app.js__ and my web page is up and running however there is a minor problem and it is that once I leave the terminal, the webpage stops working, so I had to either use nohup or systemD to make sure it is running after closing the terminal, I used
 
 ``` bash
 [Unit]
@@ -188,6 +213,20 @@ StandardError=file:/var/log/myapp.err
 
 [Install]
 WantedBy=multi-user.target
+
+```
+
+``` bash
+sudo touch /var/log/myapp.log /var/log/myapp.err
+sudo chown ubuntu:ubuntu /var/log/myapp.log /var/log/myapp.err
+
+```
+
+``` bash
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable myapp.service
+sudo systemctl start myapp.service
 
 ```
 
