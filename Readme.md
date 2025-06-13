@@ -194,7 +194,7 @@ proxy_cache_bypass $http_upgrade;
 
 This ensures that my web app runs on localhost at port 3000. It means that when a user sends a request, Nginx forwards it to my EC2 instance as localhost, and responds to the user without exposing the backend server's IP address.
 
-So after this, I run __node app.js__ and my web page is up and running however there is a minor problem and it is that once I leave the terminal, the webpage stops working, so I had to either use nohup or systemD to make sure it is running after closing the terminal, I used
+So after this, I run __node app.js__ and my web page is up and running however there is a minor problem and it is that once I leave the terminal, the webpage stops working, so I had to either use nohup or systemD to make sure it is running after closing the terminal, I used, so I created a file named myapp.service in the __/etc/systemd/system/__ directory, And I wrote the configuration below for in the myapp.service file
 
 ``` bash
 [Unit]
@@ -216,19 +216,21 @@ WantedBy=multi-user.target
 
 ```
 
+So after that, I created two log files
+
+- One for the standard output
+- And one for the standard error with the commands below:
+
 ``` bash
 sudo touch /var/log/myapp.log /var/log/myapp.err
 sudo chown ubuntu:ubuntu /var/log/myapp.log /var/log/myapp.err
 
 ```
 
-``` bash
-sudo systemctl daemon-reexec
-sudo systemctl daemon-reload
-sudo systemctl enable myapp.service
-sudo systemctl start myapp.service
+Then I enabled and started the service with systemctl commands. And my webpage is working whether I am in the terminal or not.
 
-```
+And that is the documentation on how I did my Altschool Second Semester Assignment. Thank you for reading all through, below are the deliverables.
+
 
 ## Deliverables/Submissions
 
