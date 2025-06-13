@@ -133,6 +133,11 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below
 
+<figure>
+  <img src="images/webpage-with-only-ip-address.png" alt="A descriptive alt text for the image">
+  <figcaption>A Webpage with only ip address</figcaption>
+</figure>
+
 ![image description](images/no-ip%20image.png "This is your image caption/title.")
 
 ---
