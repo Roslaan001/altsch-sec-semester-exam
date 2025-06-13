@@ -252,6 +252,10 @@ Below are two images:
 ![image description](images/webpage-with-only-ip-address.png)
 ![image description](images/image-with-domain-name.png)
 
+---
+
+## Challenges Faced
+
 
 
 ## Contact
