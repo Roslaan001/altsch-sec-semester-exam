@@ -170,6 +170,27 @@ And it generated some prompts:
 
 ## Step 6: Bonus Task (optional) Adding reverse proxy with nodejs as the backend app and nginx as the reverse proxy
 
+
+``` bash
+[Unit]
+Description=Node.js App
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /var/www/html/app.js
+WorkingDirectory=/var/www/html
+Restart=always
+RestartSec=10
+User=ubuntu
+Environment=NODE_ENV=production
+StandardOutput=file:/var/log/myapp.log
+StandardError=file:/var/log/myapp.err
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 ## Deliverables/Submissions
 
 **Domain name:** roslaan.ddns.net
