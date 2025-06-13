@@ -31,7 +31,9 @@ The goal of this project is to provision/create a server, set up a web server, d
 
 Here is a step by step guide on how I completed the project.
 
-## Step 1: Creating my dynamic landing page
+## Phase 1: Compulsory Task
+
+### Step 1: Creating my dynamic landing page
 
  1. I created my landing page and tested it in my local environment before pushing to Github and making it production ready.
 
@@ -112,16 +114,30 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 ---
 
-## Step 3: Getting a subdomain from no-ip for configuration of HTTPS
+### Step 3. Networking Configuration
+
+**Steps:**
+
+1. **Allow HTTP Traffic:**
+   - I ensured the security group allows inbound traffic on port 80 (HTTP) and port 443 (HTTPS).
+   - I also ensured the security group allows inbound SSH traffic on port 22 (SSH)
+
+2. **Access the Web Page:**
+   - I access the public IP address (13.219.103.15) from any browser and it is displaying my dynamic webpage.
+
+### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
 
 __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below 
 
 ![image description](images/no-ip%20image.png)
 
 
+
+
 ## Step 4: Bonus Task (optional) Securing the webpage with HTTPS
 
 Configuring a website with HTTPS is very important because:
+
 - it secures your website from hacker,
 - it enhances security and data integrity,
 - it improves Search Engine Optimization (SEO)
@@ -153,6 +169,8 @@ sudo certbot
 **Public URL Address:** https://roslaan.ddns.net/
 
 **Screenshot:**
+
+
 
 ## Contact
 
