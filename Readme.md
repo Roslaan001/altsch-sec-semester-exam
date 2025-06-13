@@ -124,12 +124,6 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
    - I access the public IP address (13.219.103.15) from any browser and it is displaying my dynamic webpage as shown in the image below
 
    ![image description](images/webpage-with-only-ip-address.png)
-   ![image description](images/webpage-with-only-ip-address.png)
-   <figure>
-  <img src="images/webpage-with-only-ip-address.png" alt="A descriptive alt text for the image">
-  <figcaption>A Webpage with only ip address</figcaption>
-</figure>
-
 ---
 
 ## Phase 2 : Bonus Task (Optional)
@@ -187,7 +181,9 @@ And it generated some prompts:
 **Screenshot:**
 
 Below are two images:
+
 * The first one is the webpage with the ip address and not secured with https.
+
 * The second one is the webpage with the custom domain and secured with https.
 
 
