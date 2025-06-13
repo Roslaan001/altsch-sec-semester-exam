@@ -10,8 +10,6 @@
 
 ## Below is my submission/documentation for my Altschool Second Semester Examination Project
 
----
-
 ## PROJECT OVERVIEW
 
 ## The exam entails creating, deploying and configuring HTTPS for a dynamic web application as stated below
@@ -123,11 +121,18 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
    - I also ensured the security group allows inbound SSH traffic on port 22 (SSH)
 
 2. **Access the Web Page:**
-   - I access the public IP address (13.219.103.15) from any browser and it is displaying my dynamic webpage.
+   - I access the public IP address (13.219.103.15) from any browser and it is displaying my dynamic webpage as shown in the image below
+
+   ![image description](images/webpage-with-only-ip-address.png)
+
+
+
+
+## Phase 2 : Bonus Task (Optional)
 
 ### Step 3: Getting a subdomain from no-ip for configuration of HTTPS
 
-__no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below 
+__no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP is a service that provides Dynamic DNS (DDNS) and Managed DNS hosting. It allows users to map a fixed hostname to a dynamically changing IP address, enabling remote access to devices and services. No-IP's services also include Managed DNS, which provides reliable and redundant DNS hosting for websites. On getting to the website, I signed up with my google account, create a hostname (subdomain), input my EC2 IP address, chose a record and generated the hostname with DDNS key then waited a bit for no-ip to match my fixed subdomain name to the EC2 IP address, I got a subdomain with the name **roslaan.ddns.net** as shown in the image below
 
 ![image description](images/no-ip%20image.png)
 
