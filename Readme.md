@@ -127,8 +127,6 @@ After this, I clicked on launch instance to create my EC2 instance and it was cr
 
 ---
 
-
-
 ## Phase 2 : Bonus Task (Optional)
 
 ### Step 4: Getting a subdomain from no-ip for configuration of HTTPS
@@ -137,8 +135,7 @@ __no-ip.com__ [no-ip](https://www.noip.com/) is where I got my subdomain, No-IP 
 
 ![image description](images/no-ip%20image.png)
 
-
-
+---
 
 ## Step 5: Bonus Task (optional) Securing the webpage with HTTPS
 
@@ -156,11 +153,17 @@ After the steps above, the next is sshing into my ec2 server, I did ssh using my
 ssh -i altschool.pem ubuntu@13.219.103.15
 ```
 
-I checked whether the SSL certificate tool (certbot) I will use configuring HTTPS which is certbot has been installed and I noticed it has, so I ran
+I checked whether the SSL certificate tool (certbot) I will use configuring HTTPS which is certbot has been installed with scripts I used at the start of the instance with the command __certbot --version__ and I noticed it is installed, so I ran
 
 ``` bash
-sudo certbot
+sudo certbot --nginx # This is used to obtain and install a free SSL/TLS certificate from Let’s Encrypt for my website running on Nginx. 
 ``` 
+And it generated some prompts:
+
+- Prompted me to input my email address which I did
+- Asked whether I have read the terms and agreement which I input y for yes
+- Asked whether I want to subscribe for newsletter which I input y for yes
+- Then prompt me to enter my domain name that I want to secure so I input __roslaan.ddns.net__ and after some seconds, I got a successful message that my certificate has been deployed successfully
 
 
 
