@@ -231,6 +231,7 @@ Then I enabled and started the service with systemctl commands. And my webpage i
 
 And that is the documentation on how I did my Altschool Second Semester Assignment. Thank you for reading all through, below are the deliverables.
 
+---
 
 ## Deliverables/Submissions
 
@@ -256,7 +257,13 @@ Below are two images:
 
 ## Challenges Faced
 
+1. Nohup was not working for a reason I don't know even after so many troubleshootings so I had to resort to SystemD
+2. My instance must not be shut down or restart because the public ip address will change and the subdomain may stop working
+3. I could not add captions to some of the images added in this documentation.
 
+---
+
+> NB: This site will be down after 3 weeks or a month as I will have to shut down the EC2 in order not to incur unwanted bills on my AWS account
 
 ## Contact
 
